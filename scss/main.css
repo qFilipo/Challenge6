@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-size: 18px;
+  font-weight: 500;
   font-family: "Space Grotesk", sans-serif;
 }
 
@@ -19,6 +20,7 @@ main {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .half {
@@ -26,7 +28,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 50%;
+  width: 48%;
   height: 100%;
 }
 .half_card1 {
@@ -84,41 +86,57 @@ main {
   align-items: center;
   width: 100%;
   justify-content: flex-start;
-  margin-left: 5rem;
+  margin-left: 1rem;
+}
+.half_input input {
+  border: 1px solid hsl(270, 3%, 87%);
+  border-radius: 0.4rem;
+}
+.half_input input:focus {
+  color: #000;
+  border: 1px solid hsl(278, 68%, 11%);
+  outline: none;
+}
+.half_input input::-moz-placeholder {
+  color: hsl(270, 3%, 87%);
+}
+.half_input input::placeholder {
+  color: hsl(270, 3%, 87%);
 }
 .half_input .label-conf {
   font-size: 0.8rem;
   margin-bottom: 0;
   font-weight: 600;
+  color: #000;
 }
 .half_input #card_holder {
-  margin-top: 0.3rem;
-  margin-bottom: 1rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1.5rem;
   width: 20rem;
   padding: 0.5rem;
 }
 .half_input #card_number {
-  margin-top: 0.3rem;
-  margin-bottom: 1rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1.5rem;
   width: 20rem;
   padding: 0.5rem;
 }
 .half_input #card_month {
-  margin-top: 0.3rem;
-  margin-bottom: 1rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1.5rem;
   width: 4.4rem;
   padding: 0.5rem;
   margin-right: 0.6rem;
 }
 .half_input #card_year {
-  margin-top: 0.3rem;
-  margin-bottom: 1rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1.5rem;
   width: 4.4rem;
   padding: 0.5rem;
 }
 .half_input #card_cvc {
-  margin-top: 0.3rem;
-  margin-bottom: 1rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1.5rem;
   width: 9.4rem;
   padding: 0.5rem;
 }
@@ -128,13 +146,13 @@ main {
   color: hsl(0, 0%, 100%);
   background: #000;
   border: none;
-  margin-top: 2rem;
-  border-radius: 0.4rem;
+  margin-top: 1rem;
 }
 .half_input_row {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   align-items: flex-start;
   flex-direction: column;
 }
@@ -145,6 +163,7 @@ main {
   justify-content: space-between;
 }
 .half_input_row2 .date {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -153,5 +172,14 @@ main {
 }
 .half_input_row2 .cvc {
   display: flex;
+  position: relative;
   flex-direction: column;
+}
+.half_input .worrning {
+  position: absolute;
+  visibility: hidden;
+  color: hsl(0, 100%, 66%);
+  font-size: 0.6rem;
+  bottom: 15%;
+  left: 0;
 }/*# sourceMappingURL=main.css.map */
