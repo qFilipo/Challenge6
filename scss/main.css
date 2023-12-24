@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: url("../images/bg-main-desktop.png") left center/contain no-repeat;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.half {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+}
+.half_card1 {
+  width: 447px;
+  height: 245px;
+  color: hsl(0, 0%, 100%);
+  position: relative;
+  background: url("../images/bg-card-front.png") center center/contain no-repeat;
+  margin-bottom: 2rem;
+}
+.half_card1 #card_logo {
+  padding-left: 7%;
+  padding-top: 5%;
+}
+.half_card1_filltext {
+  position: absolute;
+  width: 86%;
+  bottom: 10%;
+  left: 7%;
+  right: 7%;
+}
+.half_card1_filltext p {
+  font-size: 2rem;
+}
+.half_card1_filltext_name-date {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.half_card1_filltext_name-date .card-name {
+  text-align: left;
+  font-size: 0.8rem;
+}
+.half_card1_filltext_name-date .exp-date {
+  text-align: right;
+  font-size: 0.8rem;
+}
+.half_card2 {
+  width: 447px;
+  height: 245px;
+  position: relative;
+  color: hsl(0, 0%, 100%);
+  background: url("../images/bg-card-back.png") center center/cover no-repeat;
+  margin-left: 8rem;
+}
+.half_card2 .cvc {
+  position: absolute;
+  bottom: 47%;
+  right: 13%;
+  font-size: 0.8rem;
+}
+.half_input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  margin-left: 5rem;
+}
+.half_input .label-conf {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+.half_input #card_holder {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  width: 20rem;
+  padding: 0.5rem;
+}
+.half_input #card_number {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  width: 20rem;
+  padding: 0.5rem;
+}
+.half_input #card_month {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  width: 4.4rem;
+  padding: 0.5rem;
+  margin-right: 0.6rem;
+}
+.half_input #card_year {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  width: 4.4rem;
+  padding: 0.5rem;
+}
+.half_input #card_cvc {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  width: 9.4rem;
+  padding: 0.5rem;
+}
+.half_input #confirm {
+  width: 20rem;
+  padding: 0.5rem;
+  color: hsl(0, 0%, 100%);
+  background: #000;
+  border: none;
+  margin-top: 2rem;
+  border-radius: 0.4rem;
+}
+.half_input_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.half_input_row2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.half_input_row2 .date {
+  display: flex;
+  flex-direction: column;
+}
+.half_input_row2 .date_inputs {
+  display: flex;
+}
+.half_input_row2 .cvc {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=main.css.map */

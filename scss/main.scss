@@ -1,0 +1,158 @@
+@import "config";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body{
+    @include flex-center;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: url("../images/bg-main-desktop.png") left center / contain no-repeat;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.half{
+    @include flex-center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+
+    &_card1{
+        @include card-size;
+        color: $neutral1;
+        position: relative;
+        background: url("../images/bg-card-front.png") center center/ contain no-repeat;
+        margin-bottom: 2rem;
+
+        #card_logo{
+            padding-left: 7%;
+            padding-top: 5%;
+        }
+
+        &_filltext{
+            position: absolute;
+            width: 86%;
+
+            bottom: 10%;
+            left: 7%;
+            right: 7%;
+            
+            p{
+                font-size: 2rem;
+            }
+
+            &_name-date{
+                margin-top: 2rem;
+                display: flex;
+                justify-content: space-between;
+
+                .card-name{
+                    text-align: left;
+                    font-size: 0.8rem;
+                }
+    
+                .exp-date{
+                    text-align: right;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+    &_card2{
+        @include card-size;
+        position: relative;
+        color: $neutral1;
+        background: url("../images/bg-card-back.png") center center/ cover no-repeat;
+        margin-left: 8rem;
+        
+        .cvc{
+            position: absolute;
+            bottom: 47%;
+            right: 13%;
+            font-size: 0.8rem;
+        }
+    }
+
+    &_input{
+        @include flex-center;
+        width: 100%;
+        justify-content: flex-start;
+        margin-left: 5rem;
+
+        .label-conf{
+            font-size: 0.8rem;
+            margin-bottom:0;
+            font-weight: 600;
+        }
+
+        // input inside config
+        #card_holder{
+            @include label-input-margin-top-bottom;
+            width: 20rem;
+            padding: 0.5rem;
+        }
+        #card_number{
+            @include label-input-margin-top-bottom;
+            width: 20rem;
+            padding: 0.5rem;
+        }
+        #card_month{
+            @include label-input-margin-top-bottom;
+            width: 4.4rem;
+            padding: 0.5rem;
+            margin-right: 0.6rem;
+        }
+        #card_year{
+            @include label-input-margin-top-bottom;
+            width: 4.4rem;
+            padding: 0.5rem;
+        }
+        #card_cvc{
+            @include label-input-margin-top-bottom;
+            width: 9.4rem;
+            padding: 0.5rem;
+        }
+        #confirm{
+            width: 20rem;
+            padding: 0.5rem;
+            color: $neutral1;
+            background: #000;
+            border: none;
+            margin-top:2rem;
+            border-radius: 0.4rem;
+        }
+
+        &_row{
+            @include flex-center;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        &_row2{
+            @include flex-center;
+            justify-content: space-between;
+            
+            .date{
+                display: flex;
+                flex-direction: column;
+                &_inputs{
+                    display: flex;
+                }
+            }
+            .cvc{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}

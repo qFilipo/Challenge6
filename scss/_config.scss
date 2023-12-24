@@ -1,0 +1,22 @@
+$primary-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+$error_color: hsl(0, 100%, 66%);
+$neutral1: hsl(0, 0%, 100%);
+$neutral2: hsl(270, 3%, 87%);
+$neutral3: hsl(279, 6%, 55%);
+$neutral4: hsl(278, 68%, 11%);
+
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin card-size{
+    width: 447px;
+    height: 245px;
+}
+
+@mixin label-input-margin-top-bottom{
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+}
