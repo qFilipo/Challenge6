@@ -57,6 +57,7 @@ main{
                 margin-top: 2rem;
                 display: flex;
                 justify-content: space-between;
+                align-items: flex-end;
 
                 .card-name{
                     text-align: left;
@@ -65,7 +66,9 @@ main{
     
                 .exp-date{
                     text-align: right;
-                    font-size: 0.8rem;
+                    span{
+                        font-size: 0.8rem;
+                    }
                 }
             }
         }
@@ -177,10 +180,17 @@ main{
 
         .worrning{
             position: absolute;
-            visibility: hidden;
             color: $error_color;
             font-size: 0.6rem;
             bottom: 15%;
+            left: 0;
+        }
+
+        .worrning2{
+            position: absolute;
+            color: $error_color;
+            font-size: 0.6rem;
+            bottom: 1%;
             left: 0;
         }
     }

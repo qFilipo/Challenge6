@@ -57,6 +57,7 @@ main {
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 .half_card1_filltext_name-date .card-name {
   text-align: left;
@@ -64,6 +65,8 @@ main {
 }
 .half_card1_filltext_name-date .exp-date {
   text-align: right;
+}
+.half_card1_filltext_name-date .exp-date span {
   font-size: 0.8rem;
 }
 .half_card2 {
@@ -177,9 +180,15 @@ main {
 }
 .half_input .worrning {
   position: absolute;
-  visibility: hidden;
   color: hsl(0, 100%, 66%);
   font-size: 0.6rem;
   bottom: 15%;
+  left: 0;
+}
+.half_input .worrning2 {
+  position: absolute;
+  color: hsl(0, 100%, 66%);
+  font-size: 0.6rem;
+  bottom: 1%;
   left: 0;
 }/*# sourceMappingURL=main.css.map */

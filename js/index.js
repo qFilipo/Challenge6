@@ -1,76 +1,198 @@
 const errorMsg = document.querySelectorAll(".worrning")
+const errorMsg2 = document.querySelector(".worrning2")
 const inputBox = document.querySelectorAll(".input-box")
+const btnConfirm = document.getElementById("confirm")
 
-inputBox.forEach(function(element, index){
-    element.addEventListener('blur', function(){
-        checkInputData(index)
-    })
+let historyInput = []
+
+btnConfirm.addEventListener("click", function(event){
+    event.preventDefault()
+    checkError(0)
+    checkError(1)
+    checkError(3)
+    checkError(4)
+    historyImport()
 })
 
-function checkInputData(index){
-    if (inputBox[index].value === ''){
-        checkError(index, "Can't be blank")
-    }
-    else if (index === 0){
-        checkError(index, checkBox0(index))
-    }
-    else if (index === 1){
-        checkError(index, checkBox1(index))
-    }
-    else if (index === 2){
-        checkError(index, checkBox2(index))
-    }
-    else if (index === 3){
-        checkError(index, checkBox3(index))
-    }
-    else{
-        checkError(index, checkBox4(index))
+function historyImport(){
+    if (checkBox0(0) === undefined &&
+    checkBox1(1) === undefined &&
+    checkBox2(2) === undefined &&
+    checkBox3(3) === undefined &&
+    checkBox4(4) === undefined){
+        let newObject ={
+            number: document.querySelector(".card-number").textContent,
+            name: document.querySelector(".card-name").textContent,
+            date: document.querySelector(".exp-date").textContent,
+            cvc: document.querySelector(".cvc").textContent
+        }
+
+        if (historyInput.length < 3){
+            historyInput.unshift(newObject)
+        }
+        else{
+            historyInput.unshift(newObject)
+            historyInput.pop()
+        }
+
+        console.log(historyInput)
     }
 }
 
-function checkError(index,errorText){
-    index >=3 ? index=index-1 : null
-    errorMsg[index].style.visibility = "visible"
-    errorMsg[index].textContent = errorText
+let errorMsgObject = {
+    blank: "Can't be blank",
+    onlyLetter:"Wrong format, letters only!",
+    onlyInteger: "Wrong format, integers only!",
+    wrongNumber: "Number: 16 digits!",
+    wrongMonth: "Month: 01 - 12!",
+    wrongYear: "Year: " + new Date().getFullYear() + " - 2099!",
+    wrongCvc: "Cvc: 3 digits!",
+    cardValidation: "Card not valid!"
+}
+
+function checkError(index){
+    if (index === 0){
+        errorMsg[0].textContent = checkBox0(0)
+    }
+    else if (index === 1){
+        errorMsg[1].textContent = checkBox1(1)
+    }
+    else if (index === 3){
+        if (checkBox2(2) === errorMsgObject.blank && checkBox3(3) === errorMsgObject.blank){
+            errorMsg[2].textContent = checkBox2(2)
+            errorMsg2.textContent = ""
+            console.log("0")
+        }
+        else{
+            if(checkBox2(2) === undefined){
+                console.log("1")
+                errorMsg[2].textContent = checkBox3(3)
+                errorMsg2.textContent = checkBox2(2)
+            }
+            else{
+                console.log("2")
+                errorMsg[2].textContent = checkBox2(2)
+                errorMsg2.textContent = checkBox3(3)
+            }
+        }
+    }
+    else{
+        errorMsg[3].textContent = checkBox4(4)
+    }
 }
 
 function checkBox0(index){
-    return "0"
+    if (inputBox[index].value === ''){
+        return errorMsgObject.blank
+    }
+    else if (!/^[A-Za-z]+$/.test(inputBox[index].value.replace(/\s+/g,""))){
+        return errorMsgObject.onlyLetter
+    }
+    else{
+        changeCardholderName(inputBox[index].value)
+    }
 }
 
 function checkBox1(index){
-    return "1"
+    const cardNumberValue = inputBox[index].value.replace(/\s+/g,"")
+    if (cardNumberValue === ''){
+        return errorMsgObject.blank
+    }
+    else if (!/^\d+$/.test(cardNumberValue)){
+        return errorMsgObject.onlyInteger
+    }
+    else if (cardNumberValue.length != 16){
+        return errorMsgObject.wrongNumber
+    }
+    else{
+        changeCardNumber(cardNumberValue.slice(0,4)+" "+
+        cardNumberValue.slice(4,8)+" "+
+        cardNumberValue.slice(8,12)+" "+
+        cardNumberValue.slice(12,16)+" "
+        )
+    }
 }
 
 function checkBox2(index){
-    if (!/^\d+$/.test(inputBox[index].value)){
-        return "Wrong format, integer only!"
+    if (inputBox[index].value === ''){
+        return errorMsgObject.blank
     }
-    else if (inputBox[index].value <1 || inputBox[index].value>12){
-        return "Wrong month number!"
+    else if (!/^\d+$/.test(inputBox[index].value)){
+        return errorMsgObject.onlyInteger
     }
-    else if (inputBox[index].value.length >2){
-        return "Wrong month format!"
+    else if (inputBox[index].value <1 || inputBox[index].value>12 || inputBox[index].value.length >2){
+        return errorMsgObject.wrongMonth
     }
-    else if (inputBox[index].value.length == 1){
-        inputBox[index].value = '0' + inputBox[index].value
+    else{
+        if (inputBox[index].value.length == 1){
+            inputBox[index].value = '0' + inputBox[index].value
+        }
+        changeValidDateM(inputBox[index].value+"/")
     }
 }
 
 function checkBox3(index){
-    if (!/^\d+$/.test(inputBox[index].value)){
-        return "Wrong format, integer only"
+    if (inputBox[index].value === ''){
+        return errorMsgObject.blank
+    }
+    else if (!/^\d+$/.test(inputBox[index].value)){
+        return errorMsgObject.onlyInteger
     }
     else if (inputBox[index].value < new Date().getFullYear()){
-        return "Card not valid!"
+        return errorMsgObject.cardValidation
+    }
+    else if (inputBox[index].value >= 2100){
+        return errorMsgObject.wrongYear
     }
     else if (Number(inputBox[index].value) === new Date().getFullYear()){
         if (inputBox[index-1].value < new Date().getMonth()+1){
-            return "Card not valid!"
+            return errorMsgObject.cardValidation
         }
+        else{
+            changeValidDateY(inputBox[index].value.slice(2,4))
+        }
+    }
+    else{
+        changeValidDateY(inputBox[index].value.slice(2,4))
     }
 }
 
 function checkBox4(index){
-    return "04"
+    if (inputBox[index].value === ''){
+        return errorMsgObject.blank
+    }
+    else if (!/^\d+$/.test(inputBox[index].value)){
+        return errorMsgObject.onlyInteger
+    }
+    else if (inputBox[index].value.length !=3){
+        return errorMsgObject.wrongCvc
+    }
+    else{
+        changeCvc(inputBox[index].value)
+    }
+}
+
+function changeCardNumber(text){
+    const cardNumber=document.querySelector(".card-number")
+    cardNumber.textContent = text
+}
+
+function changeCardholderName(text){
+    const cardName=document.querySelector(".card-name")
+    cardName.textContent = text
+}
+
+function changeValidDateM(text){
+    const cardDateM=document.querySelector(".date-m")
+    cardDateM.textContent = text
+}
+
+function changeValidDateY(text){
+    const cardDateY=document.querySelector(".date-y")
+    cardDateY.textContent = text
+}
+
+function changeCvc(text){
+    const cardCvc=document.querySelector(".cvc")
+    cardCvc.textContent = text
 }
