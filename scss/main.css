@@ -31,6 +31,60 @@ main {
   width: 48%;
   height: 100%;
 }
+.half #history-menu {
+  position: absolute;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  top: 10px;
+  left: 10px;
+}
+.half #history-menu #unscroll-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  transition: all 0.5s ease;
+  transform: rotate(0deg);
+}
+.half #history-menu #unscroll-btn:hover {
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+.half #history-menu #unscroll-btn div {
+  height: 5px;
+  width: 50%;
+  margin-top: 5.25px;
+  background: lightgray;
+  border-radius: 2.5px;
+}
+.half #history-menu #history-list {
+  overflow: hidden;
+  list-style-type: none;
+  margin-top: 5px;
+}
+.half #history-menu #history-list li {
+  visibility: hidden;
+  list-style-type: none;
+  height: 30px;
+  width: 100px;
+  border: 2px solid lightgray;
+  margin-top: 5px;
+  border-radius: 15px;
+  color: lightgray;
+  transition: all 1s ease;
+  transform: translateX(-200%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .half_card1 {
   width: 447px;
   height: 245px;

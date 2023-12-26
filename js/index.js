@@ -2,6 +2,8 @@ const errorMsg = document.querySelectorAll(".worrning")
 const errorMsg2 = document.querySelector(".worrning2")
 const inputBox = document.querySelectorAll(".input-box")
 const btnConfirm = document.getElementById("confirm")
+const liItem = document.querySelectorAll(".li-item")
+const hisMenu = document.getElementById("history-menu")
 
 let historyInput = []
 
@@ -20,6 +22,7 @@ function historyImport(){
     checkBox2(2) === undefined &&
     checkBox3(3) === undefined &&
     checkBox4(4) === undefined){
+        hisMenu.style.visibility = "visible";
         let newObject ={
             number: document.querySelector(".card-number").textContent,
             name: document.querySelector(".card-name").textContent,
@@ -29,13 +32,18 @@ function historyImport(){
 
         if (historyInput.length < 3){
             historyInput.unshift(newObject)
+            liItem[historyInput.length-1].textContent = historyInput[0].name
+            for (let i=0; i<historyInput.length; i++){
+                liItem[i].style.visibility = "visible"
+            }
         }
         else{
             historyInput.unshift(newObject)
             historyInput.pop()
+            liItem[0].textContent = historyInput[0].name
+            liItem[1].textContent = historyInput[1].name
+            liItem[2].textContent = historyInput[2].name
         }
-
-        console.log(historyInput)
     }
 }
 
@@ -61,16 +69,13 @@ function checkError(index){
         if (checkBox2(2) === errorMsgObject.blank && checkBox3(3) === errorMsgObject.blank){
             errorMsg[2].textContent = checkBox2(2)
             errorMsg2.textContent = ""
-            console.log("0")
         }
         else{
             if(checkBox2(2) === undefined){
-                console.log("1")
                 errorMsg[2].textContent = checkBox3(3)
                 errorMsg2.textContent = checkBox2(2)
             }
             else{
-                console.log("2")
                 errorMsg[2].textContent = checkBox2(2)
                 errorMsg2.textContent = checkBox3(3)
             }
@@ -196,3 +201,44 @@ function changeCvc(text){
     const cardCvc=document.querySelector(".cvc")
     cardCvc.textContent = text
 }
+
+const btnMenu = document.getElementById("unscroll-btn")
+const histList = document.getElementById("history-list")
+
+function ulDriveIn(){
+    liItem.forEach(function(index){
+        setTimeout(function(){
+            liItem[0].style.transform = "translateX(0%)"
+        },100)
+        setTimeout(function(){
+            liItem[1].style.transform = "translateX(0%)"
+        },300)
+        setTimeout(function(){
+            liItem[2].style.transform = "translateX(0%)"
+        },500)
+    })
+}
+
+function ulDriveOut(){
+    liItem.forEach(function(index){
+        setTimeout(function(){
+            liItem[0].style.transform = ""
+        },500)
+        setTimeout(function(){
+            liItem[1].style.transform = ""
+        },300)
+        setTimeout(function(){
+            liItem[2].style.transform = ""
+        },100)
+    })
+}
+
+btnMenu.addEventListener("click", function(){
+    ulDriveIn()
+})
+
+document.addEventListener("click", function(event){
+    if (!btnMenu.contains(event.target)){
+        ulDriveOut()
+    }
+})
