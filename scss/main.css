@@ -259,7 +259,7 @@ main {
   left: 0;
 }
 .half_input #after-click {
-  visibility: visible;
+  visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
