@@ -79,7 +79,8 @@ main {
   visibility: hidden;
   list-style-type: none;
   height: 30px;
-  width: 100px;
+  min-width: 100px;
+  padding: 0 10px;
   border: 2px solid lightgray;
   margin-top: 5px;
   border-radius: 15px;
@@ -96,8 +97,8 @@ main {
   border: 2px solid hsl(0, 100%, 66%);
 }
 .half_card1 {
-  width: 447px;
-  height: 245px;
+  width: 24.83rem;
+  height: 13.61rem;
   color: hsl(0, 0%, 100%);
   position: relative;
   background: url("../images/bg-card-front.png") center center/contain no-repeat;
@@ -134,8 +135,8 @@ main {
   font-size: 0.8rem;
 }
 .half_card2 {
-  width: 447px;
-  height: 245px;
+  width: 24.83rem;
+  height: 13.61rem;
   position: relative;
   color: hsl(0, 0%, 100%);
   background: url("../images/bg-card-back.png") center center/cover no-repeat;
@@ -255,4 +256,154 @@ main {
   font-size: 0.6rem;
   bottom: 1%;
   left: 0;
+}
+
+@media screen and (min-width: 2560px) {
+  * {
+    font-size: 34px;
+  }
+  .half_input {
+    justify-content: flex-start;
+  }
+  .half_card1 #card_logo {
+    height: 25%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  * {
+    font-size: 16px;
+  }
+  .half_card1 #card_logo {
+    height: 25%;
+  }
+  .half_input {
+    justify-content: center;
+    margin: 0;
+    margin-right: 3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  * {
+    font-size: 20px;
+  }
+  body {
+    background: url("../images/bg-main-mobile.png") top/contain no-repeat;
+  }
+  main {
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 100vh;
+  }
+  section:first-child {
+    margin-bottom: 50px;
+  }
+  .half {
+    position: relative;
+    width: 100%;
+  }
+  .half:first-child {
+    height: 50vh;
+  }
+  .half #history-menu {
+    z-index: 3;
+  }
+  .half_card1 {
+    position: absolute;
+    top: 50%;
+    margin-right: 4.5rem;
+    z-index: 2;
+  }
+  .half_card2 {
+    margin-left: 4.5rem;
+    margin-bottom: 4.5rem;
+    z-index: 1;
+  }
+  .half_input {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 426px) {
+  * {
+    font-size: 18px;
+  }
+  body {
+    background: url("../images/bg-main-mobile.png") top center/100% auto no-repeat;
+  }
+  .half:first-child {
+    justify-content: flex-start;
+  }
+  .half_card1 {
+    width: 18.05rem;
+    height: 9.89rem;
+    margin-left: 2rem;
+    top: 40%;
+  }
+  .half_card1 #card_logo {
+    height: 25%;
+  }
+  .half_card1_filltext p {
+    font-size: 1.5rem;
+  }
+  .half_card1_filltext_name-date .card-name {
+    font-size: 0.8rem;
+  }
+  .half_card1_filltext_name-date .exp-date span {
+    font-size: 0.8rem;
+  }
+  .half_card2 {
+    width: 18.05rem;
+    height: 9.89rem;
+    margin-right: 2rem;
+    margin-top: 3rem;
+  }
+  .half #history-menu #history-list li {
+    background: gray;
+  }
+}
+@media screen and (max-width: 376px) {
+  .half_card1 {
+    width: 15rem;
+    height: 8.22rem;
+  }
+  .half_card1 #card_logo {
+    height: 25%;
+  }
+  .half_card1_filltext p {
+    font-size: 1.2rem;
+  }
+  .half_card1_filltext_name-date .card-name {
+    font-size: 0.8rem;
+  }
+  .half_card1_filltext_name-date .exp-date span {
+    font-size: 0.8rem;
+  }
+  .half_card2 {
+    width: 15rem;
+    height: 8.22rem;
+    margin-top: 2rem;
+  }
+  .half_input {
+    margin: 0 2.5rem;
+    padding: 0 2.5rem;
+  }
+  .half_input #card_holder {
+    width: 17rem;
+  }
+  .half_input #card_number {
+    width: 17rem;
+  }
+  .half_input #card_month {
+    width: 3.3rem;
+  }
+  .half_input #card_year {
+    width: 3.3rem;
+  }
+  .half_input #card_cvc {
+    width: 7.05rem;
+  }
+  .half_input #confirm {
+    width: 17rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
 }/*# sourceMappingURL=main.css.map */

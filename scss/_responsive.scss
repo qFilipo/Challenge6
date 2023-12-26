@@ -1,0 +1,195 @@
+@include media-xl-2560px{
+    *{
+        font-size: 34px;
+    }
+    .half{
+        &_input{
+            justify-content: flex-start;
+        }
+
+        &_card1{
+            #card_logo{
+                height: 25%;
+            }
+        }
+    }
+}
+
+@include media-l-1024px{
+    *{
+        font-size: 16px;
+    }
+    .half{
+        
+        &_card1{
+            #card_logo{
+                height: 25%;
+            }
+        }
+
+        &_input{
+            justify-content: center;
+            margin: 0;
+            margin-right:3rem;
+        }
+    }
+}
+
+@include media-t-768px{
+    *{
+        font-size: 20px;
+    }
+    body{
+        background: url("../images/bg-main-mobile.png") top / contain no-repeat;
+    }
+    main{
+        flex-direction: column;
+        justify-content: space-around;
+        min-height: 100vh;
+    }
+    section:first-child{
+        margin-bottom: 50px;
+    }
+    .half{
+        position: relative;
+        width: 100%;
+
+        &:first-child{
+            height: 50vh;;
+        }
+        #history-menu{
+            z-index: 3;
+        }
+        &_card1{
+            position: absolute;
+            top: 50%;
+            margin-right: 4.5rem;
+            z-index: 2;
+        }
+        &_card2{
+            margin-left: 4.5rem;
+            margin-bottom: 4.5rem;
+            z-index: 1;
+        }
+        &_input{
+            margin: 0;
+        }
+    }
+
+}
+
+@include media-s-426px{
+    *{
+        font-size: 18px;
+    }
+
+    body{
+        background: url("../images/bg-main-mobile.png") top center / 100% auto no-repeat;
+    }
+    .half{
+        &:first-child{
+            justify-content: flex-start;
+        }
+        &_card1{
+            width: 18.05rem;
+            height: 9.89rem;
+            margin-left: 2rem;
+            top:40%;
+
+            #card_logo{
+                height: 25%;
+            }
+
+            &_filltext{
+                p{
+                    font-size: 1.5rem;
+                }
+                &_name-date{
+                    .card-name{
+                        font-size: 0.8rem;
+                    }
+                    .exp-date{
+                        span{
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
+        }   
+
+        &_card2{
+            width: 18.05rem;
+            height: 9.89rem;
+            margin-right: 2rem;
+            margin-top: 3rem;
+        } 
+        #history-menu{
+            #history-list{
+                li{
+                    background: gray;
+                }
+            }
+        } 
+    }
+}
+
+@include media-xs-376px{
+    .half{
+        &_card1{
+            width: 15rem;
+            height: 8.22rem;
+
+            #card_logo{
+                height: 25%;
+            }
+
+            &_filltext{
+                p{
+                    font-size: 1.2rem;
+                }
+                &_name-date{
+                    .card-name{
+                        font-size: 0.8rem;
+                    }
+                    .exp-date{
+                        span{
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
+        }   
+
+        &_card2{
+            width: 15rem;
+            height: 8.22rem;
+            margin-top: 2rem;
+        } 
+
+        &_input{
+            margin: 0 2.5rem;
+            padding: 0 2.5rem;
+
+            #card_holder{
+                width: 17rem;
+            }
+            #card_number{
+                width: 17rem;
+            }
+            #card_month{
+                width: 3.3rem;
+            }
+            #card_year{
+                width: 3.3rem;
+            }
+            #card_cvc{
+                width: 7.05rem;
+            }
+            #confirm{
+                width: 17rem;
+                margin-top: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

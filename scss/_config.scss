@@ -12,11 +12,41 @@ $neutral4: hsl(278, 68%, 11%);
 }
 
 @mixin card-size{
-    width: 447px;
-    height: 245px;
+    width: 24.83rem;
+    height: 13.61rem;
 }
 
 @mixin label-input-margin-top-bottom{
     margin-top: 0.4rem;
     margin-bottom: 1.5rem;
+}
+
+@mixin media-xl-2560px{
+    @media screen and (min-width: 2560px){
+        @content;
+    }
+}
+
+@mixin media-l-1024px{
+    @media screen and (max-width: 1024px){
+        @content;
+    }
+}
+
+@mixin media-t-768px{
+    @media screen and (max-width: 768px){
+        @content;
+    }
+}
+
+@mixin media-s-426px{
+    @media screen and (max-width: 426px){
+        @content;
+    }
+}
+
+@mixin media-xs-376px{
+    @media screen and (max-width: 376px){
+        @content;
+    }
 }

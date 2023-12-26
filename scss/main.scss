@@ -80,7 +80,8 @@ main{
                 visibility: hidden;
                 list-style-type: none;
                 height: 30px;
-                width: 100px;
+                min-width: 100px;
+                padding: 0 10px;
                 border: 2px solid lightgray;
                 margin-top: 5px;
                 border-radius: 15px;
@@ -92,7 +93,7 @@ main{
                 align-items: center;
 
                 &:hover{
-                    cursor: pointer;
+                    cursor: pointer; 
                     color: orange;
                     border: 2px solid $error_color;
                 }
@@ -266,3 +267,6 @@ main{
         }
     }
 }
+
+@import "responsive"
+
