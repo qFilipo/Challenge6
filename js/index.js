@@ -187,6 +187,11 @@ function changeCardholderName(text){
     cardName.textContent = text
 }
 
+function changeValidDate(text){
+    const cardDate=document.querySelector(".exp-date")
+    cardDate.textContent = text
+}
+
 function changeValidDateM(text){
     const cardDateM=document.querySelector(".date-m")
     cardDateM.textContent = text
@@ -238,7 +243,23 @@ btnMenu.addEventListener("click", function(){
 })
 
 document.addEventListener("click", function(event){
-    if (!btnMenu.contains(event.target)){
+    if (!btnMenu.contains(event.target) && !liItem[0].contains(event.target) && !liItem[1].contains(event.target) && !liItem[2].contains(event.target)){
         ulDriveOut()
     }
+})
+
+liItem.forEach(function(el, index){
+    el.addEventListener('click', function(){
+        if (index === 2){
+            index=0
+        } 
+        else if (index === 0){
+            index=2
+        }
+        changeCardNumber(historyInput[index].number)
+        changeCardholderName(historyInput[index].name)
+        changeValidDateM(historyInput[index].date.slice(0,2)+'/')
+        changeValidDateY(historyInput[index].date.slice(3,5))
+        changeCvc(historyInput[index].cvc)
+    })
 })

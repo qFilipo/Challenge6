@@ -55,6 +55,11 @@ main{
             &:hover{
                 transform: rotate(90deg);
                 cursor: pointer;
+                color: $error_color;
+                border: 2px solid $error_color;
+                div{
+                    background: orange;
+                }
             }
 
             div{
@@ -70,6 +75,7 @@ main{
             overflow: hidden;
             list-style-type: none;
             margin-top: 5px;
+            
             li{
                 visibility: hidden;
                 list-style-type: none;
@@ -79,11 +85,17 @@ main{
                 margin-top: 5px;
                 border-radius: 15px;
                 color: lightgray;
-                transition: all 1s ease;
+                transition: all 0.5s ease;
                 transform: translateX(-200%);
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
+                &:hover{
+                    cursor: pointer;
+                    color: orange;
+                    border: 2px solid $error_color;
+                }
             }
         }
     }

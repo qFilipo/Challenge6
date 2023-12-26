@@ -57,6 +57,11 @@ main {
 .half #history-menu #unscroll-btn:hover {
   transform: rotate(90deg);
   cursor: pointer;
+  color: hsl(0, 100%, 66%);
+  border: 2px solid hsl(0, 100%, 66%);
+}
+.half #history-menu #unscroll-btn:hover div {
+  background: orange;
 }
 .half #history-menu #unscroll-btn div {
   height: 5px;
@@ -79,11 +84,16 @@ main {
   margin-top: 5px;
   border-radius: 15px;
   color: lightgray;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   transform: translateX(-200%);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.half #history-menu #history-list li:hover {
+  cursor: pointer;
+  color: orange;
+  border: 2px solid hsl(0, 100%, 66%);
 }
 .half_card1 {
   width: 447px;
