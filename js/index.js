@@ -4,6 +4,7 @@ const inputBox = document.querySelectorAll(".input-box")
 const btnConfirm = document.getElementById("confirm")
 const liItem = document.querySelectorAll(".li-item")
 const hisMenu = document.getElementById("history-menu")
+const afterClick = document.getElementById("after-click")
 
 let historyInput = []
 
@@ -23,6 +24,7 @@ function historyImport(){
     checkBox3(3) === undefined &&
     checkBox4(4) === undefined){
         hisMenu.style.visibility = "visible";
+        afterClick.style.visibility = "visible";
         let newObject ={
             number: document.querySelector(".card-number").textContent,
             name: document.querySelector(".card-name").textContent,
@@ -262,4 +264,11 @@ liItem.forEach(function(el, index){
         changeValidDateY(historyInput[index].date.slice(3,5))
         changeCvc(historyInput[index].cvc)
     })
+})
+
+const btnContinue = document.getElementById("confirm2")
+
+btnContinue.addEventListener("click",function(event){
+    event.preventDefault()
+    afterClick.style.visibility = "hidden";
 })

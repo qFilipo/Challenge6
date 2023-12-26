@@ -12,6 +12,13 @@
                 height: 25%;
             }
         }
+        #after-click{
+            div{
+                img{
+                    height: 25%;
+                }
+            }
+        }
     }
 }
 
@@ -31,6 +38,17 @@
             justify-content: center;
             margin: 0;
             margin-right:3rem;
+        }
+
+        #after-click{
+            width:100%;
+            margin: 0;
+            margin-left: 4rem;
+            div{
+                img{
+                    height: 25%;
+                }
+            }
         }
     }
 }
@@ -73,6 +91,16 @@
         }
         &_input{
             margin: 0;
+        }
+        #after-click{
+            width:100%;
+            margin: 0;
+            align-items: center;
+            div{
+                img{
+                    height: 25%;
+                }
+            }
         }
     }
 
@@ -121,7 +149,7 @@
             width: 18.05rem;
             height: 9.89rem;
             margin-right: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         } 
         #history-menu{
             #history-list{
@@ -163,7 +191,7 @@
         &_card2{
             width: 15rem;
             height: 8.22rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         } 
 
         &_input{
@@ -189,6 +217,16 @@
                 width: 17rem;
                 margin-top: 0;
                 margin-bottom: 1rem;
+            }
+        }
+
+        #after-click{
+            div{
+                #confirm2{
+                    width: 17rem;
+                    margin-top: 0;
+                    margin-bottom: 1rem;
+                }
             }
         }
     }

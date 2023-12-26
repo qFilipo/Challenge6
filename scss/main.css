@@ -155,6 +155,7 @@ main {
   width: 100%;
   justify-content: flex-start;
   margin-left: 1rem;
+  position: relative;
 }
 .half_input input {
   border: 1px solid hsl(270, 3%, 87%);
@@ -257,6 +258,40 @@ main {
   bottom: 1%;
   left: 0;
 }
+.half_input #after-click {
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 120%;
+  width: 100%;
+  background: white;
+}
+.half_input #after-click div {
+  text-align: center;
+}
+.half_input #after-click div img {
+  margin-bottom: 2rem;
+}
+.half_input #after-click div .thanks {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+.half_input #after-click div .added {
+  margin-bottom: 1rem;
+}
+.half_input #after-click div #confirm2 {
+  width: 20rem;
+  padding: 0.5rem;
+  color: hsl(0, 0%, 100%);
+  background: #000;
+  border: none;
+  margin-top: 1rem;
+}
 
 @media screen and (min-width: 2560px) {
   * {
@@ -266,6 +301,9 @@ main {
     justify-content: flex-start;
   }
   .half_card1 #card_logo {
+    height: 25%;
+  }
+  .half #after-click div img {
     height: 25%;
   }
 }
@@ -280,6 +318,14 @@ main {
     justify-content: center;
     margin: 0;
     margin-right: 3rem;
+  }
+  .half #after-click {
+    width: 100%;
+    margin: 0;
+    margin-left: 4rem;
+  }
+  .half #after-click div img {
+    height: 25%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -321,6 +367,14 @@ main {
   .half_input {
     margin: 0;
   }
+  .half #after-click {
+    width: 100%;
+    margin: 0;
+    align-items: center;
+  }
+  .half #after-click div img {
+    height: 25%;
+  }
 }
 @media screen and (max-width: 426px) {
   * {
@@ -354,7 +408,7 @@ main {
     width: 18.05rem;
     height: 9.89rem;
     margin-right: 2rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
   .half #history-menu #history-list li {
     background: gray;
@@ -380,7 +434,7 @@ main {
   .half_card2 {
     width: 15rem;
     height: 8.22rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   .half_input {
     margin: 0 2.5rem;
@@ -402,6 +456,11 @@ main {
     width: 7.05rem;
   }
   .half_input #confirm {
+    width: 17rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .half #after-click div #confirm2 {
     width: 17rem;
     margin-top: 0;
     margin-bottom: 1rem;
